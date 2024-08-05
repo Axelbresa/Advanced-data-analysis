@@ -41,27 +41,27 @@ print("Correlación entre salary y performance_score: ", correlation_salary_perf
 
 # # Visualización de Datos
 # # Histograma del performance_score para cada departamento
-# departments = df['department'].unique()
-# for dept in departments:
-#     plt.figure()
-#     df[df['department'] == dept]['performance_score'].hist(bins=10)
-#     plt.title(f'Histograma de performance_score para {dept}')
-#     plt.xlabel('Performance Score')
-#     plt.ylabel('Frecuencia')
-#     plt.show()
+departments = df['department'].unique()
+for dept in departments:
+    plt.figure()
+    df[df['department'] == dept]['performance_score'].hist(bins=10)
+    plt.title(f'Histograma de performance_score para {dept}')
+    plt.xlabel('Performance Score')
+    plt.ylabel('Frecuencia')
+    plt.show()
 
 # # Gráfico de dispersión de years_with_company vs. performance_score
-# plt.figure()
-# plt.scatter(df['years_with_company'], df['performance_score'])
-# plt.title('Gráfico de dispersión de years_with_company vs. performance_score')
-# plt.xlabel('Years with Company')
-# plt.ylabel('Performance Score')
-# plt.show()
+plt.figure()
+plt.scatter(df['years_with_company'], df['performance_score'])
+plt.title('Gráfico de dispersión de years_with_company vs. performance_score')
+plt.xlabel('Years with Company')
+plt.ylabel('Performance Score')
+plt.show()
 
 # # Gráfico de dispersión de salary vs. performance_score
-# plt.figure()
-# plt.scatter(df['salary'], df['performance_score'])
-# plt.title('Gráfico de dispersión de salary vs. performance_score')
-# plt.xlabel('Salary')
-# plt.ylabel('Performance Score')
-# plt.show()
+plt.figure()
+plt.scatter(df['salary'], df['performance_score'])
+plt.title('Gráfico de dispersión de salary vs. performance_score')
+plt.xlabel('Salary')
+plt.ylabel('Performance Score')
+plt.show()
