@@ -58,15 +58,6 @@ total_employees_by_dept = df['department'].value_counts()
 print("\nTotal de empleados por departamento:")
 print(total_employees_by_dept)
 
-# Crear un histograma del número de empleados por departamento
-plt.figure(figsize=(10, 6))
-total_employees_by_dept.plot(kind='bar', color='skyblue')
-plt.title('Número de empleados por departamento')
-plt.xlabel('Departamento')
-plt.ylabel('Número de Empleados')
-plt.xticks(rotation=45)
-plt.show()
-
 # Calcular correlaciones
 correlation_years_performance = df[['years_with_company', 'performance_score']].corr().iloc[0, 1]
 correlation_salary_performance = df[['salary', 'performance_score']].corr().iloc[0, 1]
@@ -79,11 +70,12 @@ print("Correlación entre salary y performance_score: ", correlation_salary_perf
 # Histograma del performance_score para cada departamento
 departments = df['department'].unique()
 for dept in departments:
-    plt.figure()
-    df[df['department'] == dept]['performance_score'].hist(bins=10)
+    plt.figure(figsize=(10, 6))
+    df[df['department'] == dept]['performance_score'].hist(bins=10, edgecolor='black')
     plt.title(f'Histograma de performance_score para {dept}')
     plt.xlabel('Performance Score')
     plt.ylabel('Frecuencia')
+    plt.grid(False)
     plt.show()
 
 # Gráfico de dispersión de years_with_company vs. performance_score
