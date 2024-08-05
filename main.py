@@ -31,7 +31,7 @@ df = df[['id', 'employee_id', 'department', 'performance_score', 'years_with_com
 # Mostrar el DataFrame con las columnas especificadas
 print(df.head())
 
-# calcular moda, media y desviación estándar de performance_score
+# Calcular moda, mediana y desviación estándar de performance_score
 performance_mode = df['performance_score'].mode()[0] if not df['performance_score'].mode().empty else None
 performance_median = df['performance_score'].median()
 performance_std = df['performance_score'].std()
@@ -41,7 +41,7 @@ print(f"Moda: {performance_mode}")
 print(f"Mediana: {performance_median}")
 print(f"Desviación Estándar: {performance_std}")
 
-# calcular moda, media y desviación estándar de salary
+# Calcular moda, mediana y desviación estándar de salary
 salary_mode = df['salary'].mode()[0] if not df['salary'].mode().empty else None
 salary_median = df['salary'].median()
 salary_std = df['salary'].std()
@@ -51,16 +51,32 @@ print(f"Moda: {salary_mode}")
 print(f"Mediana: {salary_median}")
 print(f"Desviación Estándar: {salary_std}")
 
-# # Calcular correlaciones
+# Total de empleados por departamento
+total_employees_by_dept = df['department'].value_counts()
+
+# Mostrar el total de empleados por departamento
+print("\nTotal de empleados por departamento:")
+print(total_employees_by_dept)
+
+# Crear un histograma del número de empleados por departamento
+plt.figure(figsize=(10, 6))
+total_employees_by_dept.plot(kind='bar', color='skyblue')
+plt.title('Número de empleados por departamento')
+plt.xlabel('Departamento')
+plt.ylabel('Número de Empleados')
+plt.xticks(rotation=45)
+plt.show()
+
+# Calcular correlaciones
 correlation_years_performance = df[['years_with_company', 'performance_score']].corr().iloc[0, 1]
 correlation_salary_performance = df[['salary', 'performance_score']].corr().iloc[0, 1]
 
-# # Muestra las correlaciones
+# Muestra las correlaciones
 print("\nCorrelación entre years_with_company y performance_score: ", correlation_years_performance)
 print("Correlación entre salary y performance_score: ", correlation_salary_performance)
 
-# # Visualización de Datos
-# # Histograma del performance_score para cada departamento
+# Visualización de Datos
+# Histograma del performance_score para cada departamento
 departments = df['department'].unique()
 for dept in departments:
     plt.figure()
@@ -70,7 +86,7 @@ for dept in departments:
     plt.ylabel('Frecuencia')
     plt.show()
 
-# # Gráfico de dispersión de years_with_company vs. performance_score
+# Gráfico de dispersión de years_with_company vs. performance_score
 plt.figure()
 plt.scatter(df['years_with_company'], df['performance_score'])
 plt.title('Gráfico de dispersión de years_with_company vs. performance_score')
@@ -78,7 +94,7 @@ plt.xlabel('Years with Company')
 plt.ylabel('Performance Score')
 plt.show()
 
-# # Gráfico de dispersión de salary vs. performance_score
+# Gráfico de dispersión de salary vs. performance_score
 plt.figure()
 plt.scatter(df['salary'], df['performance_score'])
 plt.title('Gráfico de dispersión de salary vs. performance_score')

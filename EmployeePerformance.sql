@@ -7,11 +7,23 @@ CREATE TABLE EmployeePerformance (
     salary DECIMAL(10, 2)
 );
 
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (1, 'Katina', 'Scuse', 'kscuse0@drupal.org', 'Female', '158.52.54.200');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (2, 'Cullan', 'Mewett', 'cmewett1@php.net', 'Male', '197.108.17.84');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (3, 'Allene', 'Farden', 'afarden2@imdb.com', 'Female', '54.169.110.222');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (4, 'Marcel', 'Bernolet', 'mbernolet3@bloglovin.com', 'Male', '147.245.57.32');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (5, 'Vergil', 'Runge', 'vrunge4@squarespace.com', 'Male', '248.97.42.21');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (6, 'Kalinda', 'Peery', 'kpeery5@salon.com', 'Female', '216.7.193.66');
-insert into EmployeePerformance (id, employee_id, department, performance_score, years_with_company, salary) values (7, 'Jillene', 'Wandrach', 'jwandrach6@un.org', 'Non-binary', '8.173.182.5');
+-- Insertar empleados en el departamento Scuse
+INSERT INTO `EmployeePerformance` (`employee_id`, `department`, `performance_score`, `years_with_company`, `salary`) VALUES
+(101, 'Scuse', 85.75, 5, 55000.00),
+(102, 'Scuse', 78.50, 3, 47000.00),
+(103, 'Scuse', 92.20, 8, 60000.00),
+(104, 'Scuse', 88.00, 4, 53000.00);
 
+-- Insertar empleados en el departamento Tech
+INSERT INTO `EmployeePerformance` (`employee_id`, `department`, `performance_score`, `years_with_company`, `salary`) VALUES
+(201, 'Tech', 91.00, 6, 62000.00),
+(202, 'Tech', 84.30, 2, 48000.00),
+(203, 'Tech', 77.50, 4, 51000.00),
+(204, 'Tech', 89.75, 7, 58000.00);
+
+-- Insertar empleados en el departamento HR
+INSERT INTO `EmployeePerformance` (`employee_id`, `department`, `performance_score`, `years_with_company`, `salary`) VALUES
+(301, 'HR', 82.10, 3, 46000.00),
+(302, 'HR', 76.25, 5, 49000.00),
+(303, 'HR', 90.35, 6, 55000.00),
+(304, 'HR', 87.40, 2, 47000.00);
