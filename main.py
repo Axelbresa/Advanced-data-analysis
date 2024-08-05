@@ -31,6 +31,26 @@ df = df[['id', 'employee_id', 'department', 'performance_score', 'years_with_com
 # Mostrar el DataFrame con las columnas especificadas
 print(df.head())
 
+# calcular moda, media y desviación estándar de performance_score
+performance_mode = df['performance_score'].mode()[0] if not df['performance_score'].mode().empty else None
+performance_median = df['performance_score'].median()
+performance_std = df['performance_score'].std()
+
+print("\nEstadísticas de performance_score:")
+print(f"Moda: {performance_mode}")
+print(f"Mediana: {performance_median}")
+print(f"Desviación Estándar: {performance_std}")
+
+# calcular moda, media y desviación estándar de salary
+salary_mode = df['salary'].mode()[0] if not df['salary'].mode().empty else None
+salary_median = df['salary'].median()
+salary_std = df['salary'].std()
+
+print("\nEstadísticas de salary:")
+print(f"Moda: {salary_mode}")
+print(f"Mediana: {salary_median}")
+print(f"Desviación Estándar: {salary_std}")
+
 # # Calcular correlaciones
 correlation_years_performance = df[['years_with_company', 'performance_score']].corr().iloc[0, 1]
 correlation_salary_performance = df[['salary', 'performance_score']].corr().iloc[0, 1]
